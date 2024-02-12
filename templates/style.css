@@ -1,0 +1,12 @@
+body {
+    background-color: #211525;
+    margin: 0px;
+    padding: 0px;
+}
+
+p, h1 {
+    padding: 0px;
+    margin: 0;
+    color: antiquewhite;
+    text-align: center
+}
