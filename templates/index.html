@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+    <br>
+
+    <form action="/math" method="post">
+        <input type="number" placeholder="Num1" required autofocus>
+        <select name="operators">
+            <option disabled selected>Operation</option>
+                {% for operator in OPERATORS %}
+                    <option value="{{ operator }}">{{ operator }}</option>
+                (% endfor %}
+        </select>
+        <input type="number" placeholder="Num2" required>
+        <button type="submit">Calculate</button>
+    </form>
+
+
+    <br>
+{% endblock %}
