@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+    {% block body %}
+        <form action="/math" method="post">
+            <input type="text" placeholder="Num1" name="left-num" required autofocus>
+            <select name="operator">
+                <option disabled selected>Operation</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input type="text" placeholder="Num2" name="right-num" required>
+            <button type="submit">Calculate</button>
+        </form>
+    {% endblock %}
