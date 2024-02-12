@@ -2,11 +2,11 @@ from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
-OPERATORS = {"+", "-", "*", "/"}
+OPERATORS = ["+", "-", "*", "/"]
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index.html", OPERATORS=OPERATORS)
 
 @app.route("/math", methods=["POST"])
 def math():
@@ -20,7 +20,7 @@ def math():
     # ensure user uses valid operator
     operator = request.form.get("operator")
     if operator not in OPERATORS:
-        return render_template("fail.html", reason="Please use a valid operator.")
+        return render_template("failure.html", reason="Please use a valid operator.")
 
     # math cases
     result = None
@@ -35,7 +35,7 @@ def math():
             try:
                 result = left_num / right_num
             except ZeroDivisionError:
-                return render_template("fail.html", reason="Cannot divide by 0.")
+                return render_template("failure.html", reason="Cannot divide by 0.")
 
     # if no exceptions met, return success html with result
     return render_template("success.html", result=result)
