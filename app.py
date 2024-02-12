@@ -8,7 +8,7 @@ OPERATORS = {"+", "-", "*", "/"}
 def index():
     return render_template("index.html")
 
-@app.route("/math")
+@app.route("/math", methods=["POST"])
 def math():
     # test user input
     try:
